@@ -48,7 +48,7 @@ class Main_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Klouqz\'s GPT Article Generator"))
         self.textEdit.setHtml(_translate("Dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "))
         self.groupBox.setTitle(_translate("Dialog", "Keywords (DE/EN)"))
         self.groupBox_2.setTitle(_translate("Dialog", "Statistics"))
