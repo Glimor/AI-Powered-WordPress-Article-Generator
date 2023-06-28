@@ -1,0 +1,6 @@
+langdetect==1.0.9
+openai==0.27.8
+PyQt6==6.5.1
+PyQt6_sip==13.5.1
+Requests==2.31.0
+SQLAlchemy==2.0.17
