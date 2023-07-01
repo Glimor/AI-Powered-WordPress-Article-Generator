@@ -46,7 +46,7 @@ MAX_LENGTH = "Maximum length of articles in words"
 3. These articles are automatically published to your WordPress site with a defined sleep time in between each post.  
   
 ## Usage  
-Add your suggestions (keywords) in the "suggestions_de.txt" or "suggestions_en.txt" file. The script will automatically use these keywords to generate articles.  
+Add your suggestions (keywords) on the main screen. The script will automatically use these keywords to generate articles.  
 Run the script by executing the following command:  
   
 python main.py  
