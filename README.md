@@ -8,8 +8,9 @@
 - 💻 **User-Friendly Interface:** Graphical User Interface (GUI) added for seamless user experience.
 
 ## 🖼️ Application Screenshots
-![Settings Screen](https://ibb.co/9NrJdzc)
-![Main Screen](https://ibb.co/GnmfShF)
+![Settings Screen](https://i.imghippo.com/files/fBq321725657886.png)
+![Main Screen](https://i.ibb.co/9cPm5MG/Screenshot-2024-09-07-001810.png)
+
 
 ## ⭐ Key Features
 - 🤖 **AI-Powered Article Generation:** Automatically generates articles using OpenAI's GPT AI based on user-provided keywords.
