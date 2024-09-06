@@ -9,7 +9,7 @@
 
 ## 🖼️ Application Screenshots
 ![Settings Screen](https://i.imghippo.com/files/fBq321725657886.png)
-![Main Screen](https://i.ibb.co/9cPm5MG/Screenshot-2024-09-07-001810.png)
+![Main Screen](https://i.imghippo.com/files/YlthJ1725658431.png)
 
 
 ## ⭐ Key Features
