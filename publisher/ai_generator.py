@@ -1,10 +1,9 @@
 import openai
 
 openai.api_key = ""
-model_engine = "text-davinci-003"
 
 class TextGenerator:
-    def __init__(self, api_key, model_engine):
+    def __init__(self, api_key, model_engine="text-davinci-003"):
         self.api_key = api_key
         self.model_engine = model_engine
         openai.api_key = self.api_key

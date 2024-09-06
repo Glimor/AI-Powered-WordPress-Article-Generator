@@ -35,7 +35,6 @@ def open_keywords():
     settings = DatabaseSettings()
     keywords = settings.get_all_data("keywords")
     for keyword in keywords:
-        print(keyword[1])
         google_crawler = GoogleCrawler(keyword=keyword[1])
         google_crawler.write_suggestions()
         settings.delete_one_keyword(keyword=keyword[1])

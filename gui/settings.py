@@ -55,7 +55,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Klouqz\'s GPT Article Generator"))
+        Dialog.setWindowTitle(_translate("Dialog", "Glimor\'s GPT Article Generator"))
         self.lineEdit.setPlaceholderText(_translate("Dialog", "OpenAI API Key"))
         self.lineEdit_2.setPlaceholderText(_translate("Dialog", "Wordpress API URL"))
         self.lineEdit_3.setPlaceholderText(_translate("Dialog", "Wordpress Username"))

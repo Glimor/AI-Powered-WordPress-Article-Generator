@@ -1,65 +1,59 @@
 
-# AI-Powered WordPress Article Generator  
-  
-## Update Notes (1.1.0)  
-- Added support for German language.  
-- Added support auto language detection.  
-- Added support for multiple keywords.  
-- Added GUI for easy usage.  
+# 📝 AI-Powered WordPress Article Generator 🚀
 
-## Images
-![Settings Screen](https://www.linkpicture.com/q/1_232.png)
+## 🔄 Version 1.1.0 Updates
+- 🌍 **German Language Support:** Now supports article generation in German.
+- 🧠 **Automatic Language Detection:** Detects the language based on input and adjusts article generation accordingly.
+- 🔑 **Multiple Keyword Support:** Generate articles based on a set of keywords for improved relevance.
+- 💻 **User-Friendly Interface:** Graphical User Interface (GUI) added for seamless user experience.
 
-![Main Screen](https://www.linkpicture.com/q/2_90.png)
-  
-## Features  
-  
-- Auto-generates articles with GPT AI.  
-- GUI for easy usage  
-- Performs keyword searches on Google to align with relevant topics.  
-- Automatically publishes articles to your WordPress site.  
-  
-## Prerequisites  
-  
-Ensure you have the following details at hand:  
-  
-- OPENAI_API_KEY: Your API Key obtained from OpenAI.  
-- WP_API_URL: Your WordPress API URL.  
-- WP_USERNAME: Your WordPress username.  
-- WP_PASSWORD: Your WordPress password.  
-  
-## Configuration  
-  
-Start main.py and update the following parameters:  
-  
-OPENAI_API_KEY = "Your OpenAI API Key"  
-WP_API_URL = "Your WordPress API URL"  
-WP_USERNAME = "Your WordPress Username"  
-WP_PASSWORD = "Your WordPress Password"  
-SLEEP_TIME = "Wait time between each post publication"  
-MAX_LENGTH = "Maximum length of articles in words"  
-  
-## How it works  
-  
-1. The script starts by searching on Google for relevant keywords based on the provided input.  
-2. The obtained keywords are used as a base for the AI to generate articles.  
-3. These articles are automatically published to your WordPress site with a defined sleep time in between each post.  
-  
-## Usage  
-Add your suggestions (keywords) on the main screen. The script will automatically use these keywords to generate articles.  
-Run the script by executing the following command:  
-  
-python main.py  
-  
-**Note:** Adjust the sleep time and maximum length of the articles according to your preferences and usage limits.  
-  
-## Donations with Crypto (Optional)  
-- BTC: 0xb0dcc1ed951eca351720064eb7399efaa148a714 (BEP20)  
-- ETH: 0xb0dcc1ed951eca351720064eb7399efaa148a714 (BEP20)  
-- USDT: TNZYwR8sVeVyg1taNcJxe2yTxsuRxnk6iK (TRC20)  
-  
-## Disclaimer  
-  
-This project is for educational purposes. Please use it responsibly and ensure it complies with OpenAI's use-case policy and WordPress's terms of service.  
-  
-Enjoy automating your article generation process and explore the power of AI in content creation!
+## 🖼️ Application Screenshots
+![Settings Screen](https://ibb.co/9NrJdzc)
+![Main Screen](https://ibb.co/GnmfShF)
+
+## ⭐ Key Features
+- 🤖 **AI-Powered Article Generation:** Automatically generates articles using OpenAI's GPT AI based on user-provided keywords.
+- 🖱️ **Easy-to-Use GUI:** Intuitive graphical interface for non-technical users.
+- 🔍 **SEO Optimization:** Uses Google keyword search to align generated articles with trending topics.
+- 📰 **Auto WordPress Publishing:** Automatically publishes generated articles to your WordPress site.
+
+## ⚙️ Prerequisites
+Ensure you have the following details ready to configure the application:
+- 🔑 **OPENAI_API_KEY:** Your API Key from OpenAI.
+- 🔗 **WP_API_URL:** The API URL of your WordPress site.
+- 👤 **WP_USERNAME:** Your WordPress username.
+- 🔒 **WP_PASSWORD:** Your WordPress password.
+
+## 🛠️ Configuration
+To set up, start the `main.py` file and update the following settings:
+```python
+OPENAI_API_KEY = "Your OpenAI API Key"
+WP_API_URL = "Your WordPress API URL"
+WP_USERNAME = "Your WordPress Username"
+WP_PASSWORD = "Your WordPress Password"
+SLEEP_TIME = "Wait time between each post publication"
+MAX_LENGTH = "Maximum length of articles in words"
+```
+
+## 🚀 How It Works
+1. 🔍 **Google Search:** The script starts by performing a Google search for relevant keywords based on the user input.
+2. 📝 **AI Article Generation:** The retrieved keywords are used as a base for GPT to generate articles.
+3. 📤 **Auto-Publishing:** These AI-generated articles are automatically published to your WordPress site, with a defined time interval between posts.
+
+## 💡 Usage
+Add your suggestions (keywords) in the main screen and run the script with the following command:
+
+```bash
+python main.py
+```
+
+🔧 **Tip:** Adjust the `sleep_time` and `max_length` settings to meet your preferences and WordPress API rate limits.
+
+## ⚠️ Disclaimer
+This project is for educational purposes. Please ensure it complies with OpenAI's usage policies and WordPress's terms of service.
+
+🌟 **Enjoy automating your article creation and exploring the potential of AI in content generation!**
+
+## Support the Project
+
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/glimor)
