@@ -8,8 +8,9 @@
 - 💻 **User-Friendly Interface:** Graphical User Interface (GUI) added for seamless user experience.
 
 ## 🖼️ Application Screenshots
-![Settings Screen](https://i.imghippo.com/files/fBq321725657886.png)
-![Main Screen](https://i.imghippo.com/files/YlthJ1725658431.png)
+<img src="https://i.imghippo.com/files/fBq321725657886.png" alt="Settings Screen" width="300px">
+<img src="https://i.imghippo.com/files/YlthJ1725658431.png" alt="Main Screen" width="300px">
+
 
 
 ## ⭐ Key Features
