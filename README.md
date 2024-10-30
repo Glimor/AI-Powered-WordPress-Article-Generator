@@ -1,21 +1,24 @@
 
 # 📝 AI-Powered WordPress Article Generator 🚀
 
-## 🔄 Version 1.1.0 Updates
-- 🌍 **German Language Support:** Now supports article generation in German.
-- 🧠 **Automatic Language Detection:** Detects the language based on input and adjusts article generation accordingly.
-- 🔑 **Multiple Keyword Support:** Generate articles based on a set of keywords for improved relevance.
-- 💻 **User-Friendly Interface:** Graphical User Interface (GUI) added for seamless user experience.
+## 🔄 Version 2.0.0 Updates
+- 🆕 **Modern CLI Interface Added:** A modern Command Line Interface (CLI) has replaced the previous GUI, enabling full control via CLI.
+- ⚙️ **Full Configuration through CLI:** All settings and configurations are now managed through CLI options for streamlined setup.
+- 🎛️ **Interactive Menu with 4 Options:** Upon running `main.py` or `GlimorWp.exe`, an interactive menu with the following options is displayed:
+    - **Option 1:** Configure bot settings, such as OpenAI API key and model selection.
+    - **Option 2:** Add keywords manually or import from a `.txt` file (1 keyword per line).
+    - **Option 3:** Start the bot for automated article generation.
+    - **Option 4:** Monitor bot progress directly via CLI.
+
+- 🤖 **AI Model Selection Feature:** Now supports selection of AI models (e.g., `gpt-4o-mini`, `gpt-4o`, etc.) to customize generation.
+- 🛠️ **Improved Database Query Handling:** Enhanced database querying for optimized performance.
 
 ## 🖼️ Application Screenshots
-<img src="https://i.imghippo.com/files/fBq321725657886.png" alt="Settings Screen" width="300px">
-<img src="https://i.imghippo.com/files/YlthJ1725658431.png" alt="Main Screen" width="300px">
-
-
+> *Note: GUI screenshots have been removed as the interface has transitioned to CLI.*
 
 ## ⭐ Key Features
 - 🤖 **AI-Powered Article Generation:** Automatically generates articles using OpenAI's GPT AI based on user-provided keywords.
-- 🖱️ **Easy-to-Use GUI:** Intuitive graphical interface for non-technical users.
+- 🔧 **Modern CLI Interface:** Intuitive CLI for quick setup and efficient use.
 - 🔍 **SEO Optimization:** Uses Google keyword search to align generated articles with trending topics.
 - 📰 **Auto WordPress Publishing:** Automatically publishes generated articles to your WordPress site.
 
@@ -27,14 +30,16 @@ Ensure you have the following details ready to configure the application:
 - 🔒 **WP_PASSWORD:** Your WordPress password.
 
 ## 🛠️ Configuration
-To set up, start the `main.py` file and update the following settings:
+To set up, start the `main.py` file or `GlimorWp.exe` executable, then select **Option 1** from the CLI menu to configure the following settings:
 ```python
-OPENAI_API_KEY = "Your OpenAI API Key"
-WP_API_URL = "Your WordPress API URL"
-WP_USERNAME = "Your WordPress Username"
-WP_PASSWORD = "Your WordPress Password"
-SLEEP_TIME = "Wait time between each post publication"
-MAX_LENGTH = "Maximum length of articles in words"
+Your OpenAI API Key
+Your WordPress Username
+Your WordPress Password
+Your WordPress API URL
+Wait time between each post publication
+Maximum length of articles in words
+Preferred model (gpt-4o / gpt-4o-mini)
+Maximum number of articles to generate
 ```
 
 ## 🚀 How It Works
@@ -43,7 +48,7 @@ MAX_LENGTH = "Maximum length of articles in words"
 3. 📤 **Auto-Publishing:** These AI-generated articles are automatically published to your WordPress site, with a defined time interval between posts.
 
 ## 💡 Usage
-Add your suggestions (keywords) in the main screen and run the script with the following command:
+To add keywords, either input them directly or load from a `.txt` file (1 keyword per line) using **Option 2** from the CLI menu. Run the script with the following command:
 
 ```bash
 python main.py

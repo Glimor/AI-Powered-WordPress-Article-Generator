@@ -2,3 +2,5 @@ venv
 .idea
 *.pyc
 *.pyo
+settings.db
+.venv

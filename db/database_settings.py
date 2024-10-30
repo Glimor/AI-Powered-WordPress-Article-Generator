@@ -1,97 +1,125 @@
-from sqlalchemy.sql import text
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, Column, Integer, String, Table
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, scoped_session
+
+Base = declarative_base()
+
+# ORM tablosu tanımlamaları
+class Setting(Base):
+    __tablename__ = 'settings'
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    api_key = Column(String)
+    wp_api_url = Column(String)
+    wp_username = Column(String)
+    wp_password = Column(String)
+    sleep_time = Column(String)
+    max_length = Column(String)
+    ai_model = Column(String)
+    max_articles = Column(String)
+
+class Suggestion(Base):
+    __tablename__ = 'suggestions'
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    suggestion = Column(String)
+    keyword = Column(String)
+
+class Keyword(Base):
+    __tablename__ = 'keywords'
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    keyword = Column(String)
+
 
 class DatabaseSettings:
     def __init__(self):
         self.engine = create_engine('sqlite:///settings.db')
+        self.session_factory = sessionmaker(bind=self.engine)
+        self.Session = scoped_session(self.session_factory)
+        Base.metadata.create_all(self.engine)
 
-        with self.get_connection() as connection:
-            statement = text("""CREATE TABLE IF NOT EXISTS settings (
-                id INTEGER PRIMARY KEY,
-                api_key TEXT,
-                wp_api_url TEXT,
-                wp_username TEXT,
-                wp_password TEXT,
-                sleep_time TEXT,
-                max_length TEXT
-            )""")
-            connection.execute(statement)
-
-            statement_2 = text("""CREATE TABLE IF NOT EXISTS suggestions (
-            id INTEGER PRIMARY KEY,
-            suggestion TEXT
-            )""")
-            connection.execute(statement_2)
-
-            statement_3 = text("""CREATE TABLE IF NOT EXISTS keywords (
-            id INTEGER PRIMARY KEY,
-            keyword TEXT
-            )""")
-            connection.execute(statement_3)
+    def get_session(self):
+        return self.Session()
 
     def get_api_key(self):
-        with self.get_connection() as connection:
-            statement = text("SELECT * FROM settings WHERE id = 1")
-            result = connection.execute(statement)
-            row = result.fetchone()
-            if row is not None:
-                return row[1]
-            else:
-                return None
+        session = self.get_session()
+        try:
+            result = session.query(Setting).filter_by(id=1).first()
+            return result.api_key if result else None
+        finally:
+            session.close()
 
-    def insert_one(self, api_key, wp_api_url, wp_username, wp_password, sleep_time, max_length):
-        with self.get_connection() as connection:
-            statement = text(
-                "INSERT INTO settings (api_key, wp_api_url, wp_username, wp_password, sleep_time, max_length) VALUES (:api_key, :wp_api_url, :wp_username, :wp_password, :sleep_time, :max_length)")
-            connection.execute(statement, {"api_key": api_key, "wp_api_url": wp_api_url, "wp_username": wp_username,
-                                           "wp_password": wp_password, "sleep_time": sleep_time,
-                                           "max_length": max_length})
-            connection.commit()
+    def insert_one(self, api_key, wp_api_url, wp_username, wp_password, sleep_time, max_length, ai_model, max_articles):
+        session = self.get_session()
+        try:
+            setting = Setting(api_key=api_key, wp_api_url=wp_api_url, wp_username=wp_username,
+                              wp_password=wp_password, sleep_time=sleep_time, max_length=max_length, ai_model=ai_model, max_articles=max_articles)
+            session.add(setting)
+            session.commit()
+        finally:
+            session.close()
 
-    def update_one(self, api_key, wp_api_url, wp_username, wp_password, sleep_time, max_length):
-        with self.get_connection() as connection:
-            statement = text("""UPDATE settings SET 
-                                api_key = :api_key, 
-                                wp_api_url = :wp_api_url, 
-                                wp_username = :wp_username, 
-                                wp_password = :wp_password, 
-                                sleep_time = :sleep_time, 
-                                max_length = :max_length
-                                WHERE id = 1""")
-            connection.execute(statement, {"api_key": api_key, "wp_api_url": wp_api_url, "wp_username": wp_username,
-                                           "wp_password": wp_password, "sleep_time": sleep_time,
-                                           "max_length": max_length})
-            connection.commit()
+    def update_one(self, api_key, wp_api_url, wp_username, wp_password, sleep_time, max_length, ai_model, max_articles):
+        session = self.get_session()
+        try:
+            setting = session.query(Setting).filter_by(id=1).first()
+            if setting:
+                setting.api_key = api_key
+                setting.wp_api_url = wp_api_url
+                setting.wp_username = wp_username
+                setting.wp_password = wp_password
+                setting.sleep_time = sleep_time
+                setting.max_length = max_length
+                setting.ai_model = ai_model
+                setting.max_articles = max_articles
+                session.commit()
+        finally:
+            session.close()
 
-    def insert_suggestion(self, suggestion):
-        with self.get_connection() as connection:
-            statement = text("INSERT INTO suggestions (suggestion) VALUES (:suggestion)")
-            connection.execute(statement, {"suggestion": suggestion})
-            connection.commit()
+    def insert_suggestion(self, suggestion, keyword):
+        session = self.get_session()
+        try:
+            suggestion_entry = Suggestion(suggestion=suggestion, keyword=keyword)
+            session.add(suggestion_entry)
+            session.commit()
+        finally:
+            session.close()
 
     def delete_one_suggestion(self, suggestion):
-        with self.get_connection() as connection:
-            statement = text("DELETE FROM suggestions WHERE suggestion = :suggestion")
-            connection.execute(statement, {"suggestion": suggestion})
-            connection.commit()
+        session = self.get_session()
+        try:
+            session.query(Suggestion).filter_by(suggestion=suggestion).delete()
+            session.commit()
+        finally:
+            session.close()
 
     def delete_one_keyword(self, keyword):
-        with self.get_connection() as connection:
-            statement = text("DELETE FROM keywords WHERE keyword = :keyword")
-            connection.execute(statement, {"keyword": keyword})
-            connection.commit()
-
-    def insert_keyword(self, keyword):
-        with self.get_connection() as connection:
-            statement = text("INSERT INTO keywords (keyword) VALUES (:keyword)")
-            connection.execute(statement, {"keyword": keyword})
-            connection.commit()
+        session = self.get_session()
+        try:
+            session.query(Keyword).filter_by(keyword=keyword).delete()
+            session.commit()
+        finally:
+            session.close()
+            
+    def insert_keywords(self, keywords):
+        session = self.get_session()
+        try:
+            for keyword in keywords:
+                keyword_entry = Keyword(keyword=keyword)
+                session.add(keyword_entry)
+            session.commit()
+        finally:
+            session.close()
 
     def get_all_data(self, table_name):
-        with self.get_connection() as connection:
-            statement = text(f"SELECT * FROM {table_name}")
-            result = connection.execute(statement)
-            return result.fetchall()
-    def get_connection(self):
-        return self.engine.connect()
-
+        session = self.get_session()
+        try:
+            table_class = {
+                'settings': Setting,
+                'suggestions': Suggestion,
+                'keywords': Keyword
+            }.get(table_name)
+            if table_class:
+                return session.query(table_class).all()
+            else:
+                raise ValueError("Table name not recognized.")
+        finally:
+            session.close()
