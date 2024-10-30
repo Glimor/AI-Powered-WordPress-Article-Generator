@@ -14,7 +14,7 @@
 - 🛠️ **Improved Database Query Handling:** Enhanced database querying for optimized performance.
 
 ## 🖼️ Application Screenshots
-> *Note: GUI screenshots have been removed as the interface has transitioned to CLI.*
+<img src="https://i.ibb.co/TYJdNTb/Screenshot-2024-10-30-234102.png" alt="Screen" width="300px">
 
 ## ⭐ Key Features
 - 🤖 **AI-Powered Article Generation:** Automatically generates articles using OpenAI's GPT AI based on user-provided keywords.
